@@ -7,3 +7,8 @@ webcam:
   ffmpeg: /usr/bin/ffmpeg
   snapshot: http://localhost:8080/?action=snapshot
   stream: /webcam/?action=stream
+plugins:
+  klipper:
+    configuration:
+      config_path: /octoprint/klipper/
+      baseconfig: printer.cfg

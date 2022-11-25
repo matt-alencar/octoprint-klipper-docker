@@ -1,0 +1,2 @@
+# For Kingroon K3PS
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", ATTRS{bcdDevice}=="0264", SYMLINK+="my3dprinter"

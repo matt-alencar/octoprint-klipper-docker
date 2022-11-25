@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+exec /opt/klipper/klippy-env/bin/python /opt/klipper/klippy/klippy.py /octoprint/klipper/printer.cfg -l $KLIPPER_LOG

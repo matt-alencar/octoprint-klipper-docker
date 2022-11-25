@@ -2,20 +2,20 @@ version: '2.4'
 
 services:
   octoprint:
-    image: octoprint/octoprint
+    image: octoprint-klipper
     restart: unless-stopped
     ports:
       - 80:80
-    # devices:
-    # use `python -m serial.tools.miniterm` to see what the name is of the printer, this requires pyserial
-    #  - /dev/ttyACM0:/dev/ttyACM0
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
     #  - /dev/video0:/dev/video0
     volumes:
-     - octoprint:/octoprint
+     - octoprint_data:/octoprint
     # uncomment the lines below to ensure camera streaming is enabled when
     # you add a video device
-    #environment:
-    #  - ENABLE_MJPG_STREAMER=true
+    environment:
+      - ENABLE_MJPG_STREAMER=false
+      - TZ=Europe/Lisbon
   
   ####
   # uncomment if you wish to edit the configuration files of octoprint
@@ -37,4 +37,4 @@ services:
   #    - octoprint:/octoprint
 
 volumes:
-  octoprint:
+  octoprint_data:
