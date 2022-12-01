@@ -2,7 +2,7 @@ accessControl:
   userfile: /octoprint/octoprint/users.yaml
 server:
   commands:
-    serverRestartCommand: s6-svc -r /var/run/s6/services/octoprint
+    serverRestartCommand: s6-svc -r /var/run/s6/services/octoprint && s6-svc -r /var/run/s6/services/klippy
 webcam:
   ffmpeg: /usr/bin/ffmpeg
   snapshot: http://localhost:8080/?action=snapshot
@@ -10,5 +10,6 @@ webcam:
 plugins:
   klipper:
     configuration:
-      config_path: /octoprint/klipper/
       baseconfig: printer.cfg
+      config_path: /octoprint/klipper/
+      logpath: /octoprint/klipper/klippy.log
