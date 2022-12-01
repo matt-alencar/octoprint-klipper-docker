@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   octoprint:
+    container_name: octoprint-klipper
     image: octoprint-klipper
     build: .
     restart: unless-stopped
@@ -22,3 +23,4 @@ services:
       - TZ=Europe/Lisbon
 volumes:
   octoprint_data:
+    name: octoprint_data
