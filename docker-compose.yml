@@ -9,18 +9,20 @@ services:
     ports:
       - 80:80
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-    #  - /dev/video0:/dev/video0
+      - /dev/my3dprinter:/dev/ttyUSB0
+      - /dev/video0:/dev/video0
     volumes:
-     - octoprint_data:/octoprint
+      - octoprint_data:/octoprint
     # - ./octoprint_data:/octoprint
     # - ./octoprint_data/klipper:/octoprint/klipper
     # - ./octoprint_data/plugins:/octoprint/plugins
     # uncomment the lines below to ensure camera streaming is enabled when
     # you add a video device
     environment:
-      - ENABLE_MJPG_STREAMER=false
+      - ENABLE_MJPG_STREAMER=true
+      - MJPG_STREAMER_INPUT=-n -r 1280x720 -f 15
       - TZ=Europe/Lisbon
 volumes:
   octoprint_data:
+    external: true
     name: octoprint_data
